@@ -149,6 +149,6 @@ int ezThreeFourths(int x) {
        bias = (threex>>31) & 3;
        result = (threex + bias) >> 2;
 
-       return result;
+       return result
   
 }
