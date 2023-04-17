@@ -1,8 +1,8 @@
-/* 
- * CS:APP Data Lab 
- * 
- * <Please put your name and userid here>
- * 
+/*
+ * CS:APP Data Lab
+ *
+ * <Jason Tran 605975912>
+ *
  * bits.c - Source file with your solutions to the Lab.
  *          This is the file you will hand in to your instructor.
  *
@@ -10,7 +10,7 @@
  * compiler. You can still use printf for debugging without including
  * <stdio.h>, although you might get a compiler warning. In general,
  * it's not good practice to ignore compiler warnings, but in this
- * case it's OK.  
+ * case it's OK.
  */
 
 #if 0
@@ -129,7 +129,6 @@ NOTES:
  *      the correct answers.
  */
 
-
 #endif
 /* Copyright (C) 1991-2012 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
@@ -158,41 +157,45 @@ NOTES:
 /* wchar_t uses ISO/IEC 10646 (2nd ed., published 2011-03-15) /
    Unicode 6.0.  */
 /* We do not support C11 <threads.h>.  */
-//1
+// 1
 /*
  * isTmax - returns 1 if x is the maximum, two's complement number,
- *     and 0 otherwise 
+ *     and 0 otherwise
  *   Legal ops: ! ~ & ^ | +
  *   Max ops: 10
  *   Rating: 1
  */
-int isTmax(int x) {
-  return 2;
+int isTmax(int x)
+{
+
+  return (!x >> 31) & ~(1 << 31);
 }
-//2
-/* 
+// 2
+/*
  * evenBits - return word with all even-numbered bits set to 1
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 8
  *   Rating: 1
  */
-int evenBits(void) {
+int evenBits(void)
+{
   return 2;
 }
-//3
-/* 
- * isEqual - return 1 if x == y, and 0 otherwise 
+// 3
+/*
+ * isEqual - return 1 if x == y, and 0 otherwise
  *   Examples: isEqual(5,5) = 1, isEqual(4,5) = 0
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 5
  *   Rating: 2
  */
-int isEqual(int x, int y) {
+int isEqual(int x, int y)
+{
   return 2;
 }
-//4
-/* 
- * fitsBits - return 1 if x can be represented as an 
+// 4
+/*
+ * fitsBits - return 1 if x can be represented as an
  *  n-bit, two's complement integer.
  *   1 <= n <= 32
  *   Examples: fitsBits(5,3) = 0, fitsBits(-4,3) = 1
@@ -200,32 +203,35 @@ int isEqual(int x, int y) {
  *   Max ops: 15
  *   Rating: 2
  */
-int fitsBits(int x, int n) {
+int fitsBits(int x, int n)
+{
   return 2;
 }
-//5
-/* 
- * conditional - same as x ? y : z 
+// 5
+/*
+ * conditional - same as x ? y : z
  *   Example: conditional(2,4,5) = 4
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 16
  *   Rating: 3
  */
-int conditional(int x, int y, int z) {
+int conditional(int x, int y, int z)
+{
   return 2;
 }
-//6
-/* 
- * isGreater - if x > y  then return 1, else return 0 
+// 6
+/*
+ * isGreater - if x > y  then return 1, else return 0
  *   Example: isGreater(4,5) = 0, isGreater(5,4) = 1
  *   Legal ops: ! ~ & ^ | + << >>
  *   Max ops: 24
  *   Rating: 3
  */
-int isGreater(int x, int y) {
+int isGreater(int x, int y)
+{
   return 2;
 }
-//7
+// 7
 /*
  * multFiveEighths - multiplies by 5/8 rounding toward 0.
  *   Should exactly duplicate effect of C expression (x*5/8),
@@ -237,24 +243,32 @@ int isGreater(int x, int y) {
  *   Max ops: 12
  *   Rating: 3
  */
-int multFiveEighths(int x) {
-  return 2;
+int multFiveEighths(int x)
+{
+  int fivex, bias, result;
+
+  fivex = x + x + x + x + x;
+  bias = (fivex >> 31) & 7;
+  result = (fivex + bias) >> 3;
+
+  return result;
 }
-//8
-/* 
- * logicalNeg - implement the ! operator, using all of 
+// 8.
+/*
+ * logicalNeg - implement the ! operator, using all of
  *              the legal operators except !
  *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
  *   Legal ops: ~ & ^ | + << >>
  *   Max ops: 12
- *   Rating: 4 
+ *   Rating: 4
  */
-int logicalNeg(int x) {
+int logicalNeg(int x)
+{
   return 2;
 }
-//9
-/* 
- * twosComp2SignMag - Convert from two's complement to sign-magnitude 
+// 9
+/*
+ * twosComp2SignMag - Convert from two's complement to sign-magnitude
  *   where the MSB is the sign bit
  *   You can assume that x > TMin
  *   Example: twosComp2SignMag(-5) = 0x80000005.
@@ -262,10 +276,11 @@ int logicalNeg(int x) {
  *   Max ops: 15
  *   Rating: 4
  */
-int twosComp2SignMag(int x) {
+int twosComp2SignMag(int x)
+{
   return 2;
 }
-//10
+// 10
 /*
  * isPower2 - returns 1 if x is a power of 2, and 0 otherwise
  *   Examples: isPower2(5) = 0, isPower2(8) = 1, isPower2(0) = 0
@@ -274,6 +289,7 @@ int twosComp2SignMag(int x) {
  *   Max ops: 20
  *   Rating: 4
  */
-int isPower2(int x) {
+int isPower2(int x)
+{
   return 2;
 }
